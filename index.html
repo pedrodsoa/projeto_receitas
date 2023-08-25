@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Pizza</title>
+  <!-- Importação do Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+    rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+    crossorigin="anonymous">
+</head>
+
+<body>
+  <!-- Barra de navegação -->
+  <nav class="navbar navbar-expand-md navbar-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <h1 class="m-0"><img class="d-block" src="./img/pizza.png" alt="Logo do site" decoding="async" width="70" height="70"></h1>
+      </a>
+      <!-- Botão de toggle para dispositivos móveis -->
+      <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- Itens de navegação -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="cadastro-receitas.html">Cadastrar receitas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Login</a>
+          </li>
+        </ul>
+        <!-- Formulário de pesquisa -->
+        <form class="d-flex" onsubmit="searchRecipe(); return false;">
+          <input type="text" id="searchInput" placeholder="Digite uma receita...">
+          <input class="btn btn-outline-light rounded-0" type="submit" value="Pesquisar">
+        </form>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="container">
+    <div id="recipeContainer" class="row">
+      <div class="col-lg-12">
+        <h2 class="recipe-title">Receitas Populares</h2>
+      </div>
+      <div class="col-md-4">
+        <div class="recipe-container">
+          <h3>Pizza Margherita</h3>
+          <p>Ingredientes:</p>
+          <ul>
+            <li>Massa de pizza</li>
+            <li>Molho de tomate</li>
+            <li>Mussarela</li>
+            <li>Tomate</li>
+            <li>Folhas de manjericão</li>
+            <li>Azeite de oliva</li>
+            <li>Sal</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="recipe-container">
+          <h3>Pizza Calabresa</h3>
+          <p>Ingredientes:</p>
+          <ul>
+            <li>Massa de pizza</li>
+            <li>Molho de tomate</li>
+            <li>Calabresa fatiada</li>
+            <li>Cebola</li>
+            <li>Mussarela</li>
+            <li>Azeitonas pretas</li>
+            <li>Orégano</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="recipe-container">
+          <h3>Pizza Quatro Queijos</h3>
+          <p>Ingredientes:</p>
+          <ul>
+            <li>Massa de pizza</li>
+            <li>Molho de tomate</li>
+            <li>Queijo mussarela</li>
+            <li>Queijo gorgonzola</li>
+            <li>Queijo parmesão</li>
+            <li>Queijo provolone</li>
+            <li>Orégano</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="recipe-container">
+          <h3>Pizza Marguerita com Pepperoni</h3>
+          <p>Ingredientes:</p>
+          <ul>
+            <li>Massa de pizza</li>
+            <li>Molho de tomate</li>
+            <li>Mussarela</li>
+            <li>Fatias de pepperoni</li>
+            <li>Tomate</li>
+            <li>Folhas de manjericão</li>
+            <li>Azeite de oliva</li>
+            <li>Sal</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-4">
+  <div class="recipe-container">
+    <h3>Pizza Margherita com Rúcula</h3>
+    <p>Ingredientes:</p>
+    <ul>
+      <li>Massa de pizza</li>
+      <li>Molho de tomate</li>
+      <li>Mussarela</li>
+      <li>Folhas de rúcula</li>
+      <li>Tomate cereja</li>
+      <li>Queijo parmesão ralado</li>
+      <li>Azeite de oliva</li>
+      <li>Sal</li>
+    </ul>
+  </div>
+</div>
+
+<div class="col-md-4">
+  <div class="recipe-container">
+    <h3>Pizza Vegetariana</h3>
+    <p>Ingredientes:</p>
+    <ul>
+      <li>Massa de pizza</li>
+      <li>Molho de tomate</li>
+      <li>Queijo mussarela</li>
+      <li>Cebola</li>
+      <li>Pimentão</li>
+      <li>Cogumelos</li>
+      <li>Tomate</li>
+      <li>Azeitonas pretas</li>
+      <li>Orégano</li>
+    </ul>
+  </div>
+</div>
+    </div>
+  </div>
+
+  <script>
+    function searchRecipe() {
+      // Captura do elemento de entrada de pesquisa
+      var searchInput = document.getElementById("searchInput");
+      // Captura do container de receitas
+      var recipeContainer = document.getElementById("recipeContainer");
+      //Captura do valor digitado na caixa de pesquisa
+      var searchTerm = searchInput.value.toLowerCase();
+
+      if (searchTerm === "pizza portuguesa") {
+        // Se a pesquisa for por "pizza portuguesa", exibe a receita correspondente
+        recipeContainer.innerHTML = `
+          <div class="col-md-4">
+            <div class="recipe-container">
+              <h3>Pizza Portuguesa</h3>
+              <p>Ingredientes:</p>
+              <ul>
+                <li>Massa de pizza pré-pronta</li>
+                <li>Molho de tomate</li>
+                <li>Queijo mussarela ralado</li>
+                <li>Fatias de presunto</li>
+                <li>Rodelas de cebola</li>
+                <li>Fatias de tomate</li>
+                <li>Azeitonas pretas sem caroço</li>
+                <li>Orégano a gosto</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="recipe-container">
+              <h3>Pizza Portuguesa Vegetariana</h3>
+              <p>Ingredientes:</p>
+              <ul>
+                <li>Massa de pizza pré-pronta</li>
+                <li>Molho de tomate</li>
+                <li>Queijo mussarela ralado</li>
+                <li>Rodelas de cebola</li>
+                <li>Fatias de tomate</li>
+                <li>Azeitonas pretas sem caroço</li>
+                <li>Orégano a gosto</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="recipe-container">
+              <h3>Pizza Portuguesa Vegana</h3>
+              <p>Ingredientes:</p>
+              <ul>
+                <li>Massa de pizza pré-pronta (verifique se é vegana)</li>
+                <li>Molho de tomate</li>
+                <li>Queijo vegano ralado</li>
+                <li>Presunto vegano em fatias (opcional)</li>
+                <li>Rodelas de cebola</li>
+                <li>Fatias de tomate</li>
+                <li>Azeitonas pretas sem caroço</li>
+                <li>Orégano a gosto</li>
+              </ul>
+            </div>
+          </div>`;
+      } else {
+        // Caso contrário, exibe uma mensagem informando que nenhuma receita foi encontrada
+        recipeContainer.innerHTML = "<p class='col-lg-12 recipe-content'>Não encontramos uma receita para sua pesquisa.</p>";
+      }
+    }
+  </script>
+<!-- Importação do JavaScript do Bootstrap --> 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-+zj4gER74V7RcG6FlE9JQZJG7EzysJ4fijie62zrQOxqEN4kwA2VbBppf3a81hYA"
+    crossorigin="anonymous">
+  </script>
+</body>
+<footer class="rodape">
+  <div class="container">
+    <p>Desenvolvido por Rafael Nogueira e Pedro Andrade</p>
+  </div>
+</footer>
+</html>
