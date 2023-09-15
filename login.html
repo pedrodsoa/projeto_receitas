@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=chrome">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pizza</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Raleway:ital,wght@1,200&display=swap"
@@ -16,23 +16,44 @@
 </head>
 
 <body>
- <!-- Barra de navegação -->
- <nav class="navbar navbar-expand-md navbar-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">
-      <h1 class="m-0"><img class="d-block" src="./img/pngegg.png" alt="Logo do site" decoding="async" width="70"
-          height="70"></h1>
-    </a>
+  <!-- Barra de navegação -->
+  <nav class="navbar navbar-expand-md navbar-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <h1 class="m-0"><img class="d-block" src="./img/pngegg.png" alt="Logo do site" decoding="async" width="70" height="70"></h1>
+      </a>
+      <!-- Botão de toggle para dispositivos móveis -->
+      <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- Itens de navegação -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="cadastro-receitas.html">Cadastrar receitas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Login</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
   <div class="container">
     <a class="links" id="paracadastro"></a>
     <a class="links" id="paralogin"></a>
 
+
     <div class="content">
       <!--FORMULÁRIO DE LOGIN-->
       <div id="login">
         <form method="post" action="">
-          <h1 class="h1_login">Login</h1>
+          <h1>Login</h1>
           <p>
             <label for="nome_login">Digite seu nome:</label>
             <input id="nome_login" name="nome_login" required="required" type="text" />
@@ -51,9 +72,7 @@
           </p>
 
           <p>
-          <form action="index.html">
-            <input type="submit" />
-          </form>
+            <input type="submit" class="input_submeter" value="Entrar" />
           </p>
 
           <p class="link">
@@ -84,7 +103,7 @@
           </p>
 
           <p>
-            <input type="submit" value="Cadastrar" />
+            <input type="submit" class="input_submeter" value="Cadastrar" />
           </p>
 
           <p class="link">
