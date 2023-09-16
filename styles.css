@@ -1,10 +1,11 @@
 footer {
     color: #ffffff;
     background-color: #4da1b4;
-    padding: 5px;
+    padding: 10px;
     text-align: center;
     font-size: 15px;
     font-weight: 400;
+    height: 30Tpx;
 }
 .navbar {
     background-color: #4da1b4;
