@@ -1,7 +1,28 @@
 <?php
 class ReceitaModel {
+    private $conexao;
+
+    public function __construct($conexao) {
+        $this->conexao = $conexao;
+    }
+
     public function salvarNoBanco($nome, $ingredientes, $modoPreparo, $nomeArquivo) {
+        $sql = "INSERT INTO Receita (nome, ingredientes, modo_preparo, foto) VALUES (?, ?, ?, ?)";
         
+        $stmt = $this->conexao->prepare($sql);
+
+        $stmt->bind_param("ssss", $nome, $ingredientes, $modoPreparo, $nomeArquivo);
+
+        $stmt->execute();
+
+        $stmt->close();
+
+        return [
+            'nome' => $nome,
+            'ingredientes' => $ingredientes,
+            'modoPreparo' => $modoPreparo,
+            'nomeArquivo' => $nomeArquivo,
+        ];
     }
 }
 ?>
