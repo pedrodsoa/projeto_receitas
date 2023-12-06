@@ -19,7 +19,8 @@ if (mysqli_num_rows($verifica)<=0){
       }else{  
         echo"<script language='javascript' type='text/javascript'>
         alert('Bem vindo.');window.location
-        .href='index.html';</script>";
+        .href='../view/index.html';</script>";
+        
       }
   }
 ?>
